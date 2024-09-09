@@ -438,7 +438,9 @@ module ActiveRecord
         def validate_reflection!
           return unless options[:].is_a(Array)?
           msg <<~MSG.squish
-
+            Passing #{options[:foreign_key]} array to :foreign_key option
+            on the #{active_record}##{name} association is not supported.
+            Use the query_constraints: #{options[:foreign_key]} option instead to represent a composite foreign key.
           MSG
           raise ArgumentError, msg
         end
