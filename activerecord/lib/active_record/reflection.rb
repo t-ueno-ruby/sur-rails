@@ -382,6 +382,7 @@ module ActiveRecord
         @klass         = options[:anonymous_class]
         @plural_name   = active_record.pluralize_table_names ?
                             name.to_s.pluralize : name.to_s
+        validate_reflection!
       end
 
       def autosave=(autosave)
@@ -432,6 +433,14 @@ module ActiveRecord
       private
         def derive_class_name
           name.to_s.camelize
+        end
+
+        def validate_reflection!
+          return unless options[:].is_a(Array)?
+          msg <<~MSG.squish
+
+          MSG
+          raise ArgumentError, msg
         end
     end
 
